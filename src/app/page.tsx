@@ -1,65 +1,116 @@
-import Image from "next/image";
+'use client';
 
-export default function Home() {
-  return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
-  );
+import { useState } from 'react';
+import Image from "next/image";
+import { Avatar } from 'fn-ui-avatars-react';
+
+export default function AvatarDemo() {
+	const [name, setName] = useState('Jon Doe');
+    const [cacheBust, setCacheBust] = useState(() => Date.now());
+
+	const rawApiUrl = `https://ui-avatars.com/api/?name=${encodeURIComponent(name || '?')}&size=192&font-size=0.33&length=2&background=random&rounded=false&format=svg&_=${cacheBust}`;
+
+	return (
+		<div className="min-h-screen bg-gray-50 flex items-center justify-center p-4 font-sans">
+			<div className="max-w-4xl w-full bg-white p-8 rounded-2xl shadow-xl">
+				<div className="text-center mb-10">
+					<h1 className="text-3xl font-extrabold text-gray-900 mb-2">
+						fn-ui-avatars vs Raw API
+					</h1>
+					<p className="text-gray-500">
+						Try it and see the difference.
+					</p>
+				</div>
+
+				<div className="max-w-md mx-auto mb-12">
+					<label
+						htmlFor="name-input"
+						className="block text-sm font-semibold text-gray-700 mb-2"
+					>
+						Enter a first and last name:
+					</label>
+					<input
+						id="name-input"
+						type="text"
+						value={name}
+						onChange={(e) => { setName(e.target.value); setCacheBust(Date.now()); }}
+						className="w-full border-2 border-gray-300 p-3 rounded-xl focus:outline-none focus:border-blue-500 transition-colors text-lg"
+						placeholder="Ex: John Doe"
+					/>
+				</div>
+
+				<div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+					<div className="border border-gray-200 rounded-xl p-6 flex flex-col items-center bg-gray-50 opacity-80 hover:opacity-100 transition-opacity">
+						<h2 className="text-lg font-semibold mb-6 text-gray-500">
+							Native API (UI-Avatars)
+						</h2>
+
+						<div className="h-32 w-32 mb-6">
+							<Image
+								src={rawApiUrl}
+								alt="Native API Avatar"
+								className="w-full h-full rounded-full shadow-sm"
+                                width={128}
+                                height={128}
+                                unoptimized
+                                priority
+							/>
+						</div>
+
+						<div className="space-y-3 text-sm text-gray-600 text-center grow">
+							<p>
+								❌ Colors change frenetically with each keystroke.
+							</p>
+							<p>
+								❌ Requires manual manipulation of URLs and encodings.
+							</p>
+						</div>
+
+						<div className="mt-6 w-full">
+							<code
+								className="block text-xs bg-gray-200 text-gray-600 p-3 rounded-lg overflow-hidden whitespace-nowrap text-ellipsis"
+								title={rawApiUrl}
+							>
+								&lt;img src=&quot;https://ui-avatars.com/api/?name=...&quot; /&gt;
+							</code>
+						</div>
+					</div>
+
+					<div className="border-2 border-blue-500 rounded-xl p-6 flex flex-col items-center bg-blue-50 relative shadow-md transform hover:-translate-y-1 transition-transform">
+						<div className="absolute -top-3 bg-blue-500 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+							fn-ui-avatars
+						</div>
+
+						<h2 className="text-lg font-bold mb-6 text-blue-800">
+							fn-ui-avatars-react
+						</h2>
+
+						<div className="h-32 w-32 mb-6">
+							<Avatar
+								name={name || '?'}
+								rounded={false}
+								className="w-full h-full rounded-full shadow-lg border-4 border-white"
+							/>
+						</div>
+
+						<div className="space-y-3 text-sm text-blue-900 text-center grow font-medium">
+							<p>
+								✅ Deterministic colors ({name || '?'} has always the same color).
+							</p>
+							<p>
+								✅ Intelligent contrast (Text adapts to the background).
+							</p>
+							<p>✅ Clean and declarative code.</p>
+						</div>
+
+						<div className="mt-6 w-full">
+							<code className="block text-xs bg-blue-900 text-blue-100 p-3 rounded-lg overflow-hidden">
+								&lt;Avatar name=&quot;{name || '?'}&quot; /&gt;
+							</code>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	);
 }
