@@ -36,7 +36,7 @@ export default function AvatarDemo() {
                             setName(e.target.value);
                             setCacheBust(`&_=${Date.now()}`);
                         }}
-                        className="w-full border-2 border-gray-300 p-3 rounded-xl focus:outline-none focus:border-blue-500 transition-colors text-lg"
+                        className="w-full border-2 border-gray-300 p-3 rounded-xl focus:outline-none focus:border-blue-500 transition-colors text-lg text-gray-900 font-medium placeholder-gray-400 shadow-sm"
                         placeholder="Ex: John Doe"
                     />
                 </div>
