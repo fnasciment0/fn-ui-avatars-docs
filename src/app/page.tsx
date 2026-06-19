@@ -16,10 +16,10 @@ export default function AvatarDemo() {
             {/* 1. HERO SECTION (INTERACTIVE DEMO) */}
             <div className="max-w-4xl w-full bg-white p-8 rounded-2xl shadow-xl mb-12">
                 <div className="text-center mb-10">
-                    <h1 className="text-3xl font-extrabold text-gray-900 mb-2">
+                    <h1 className="text-3xl font-extrabold text-gray-900 mb-3">
                         fn-ui-avatars vs Raw API
                     </h1>
-                    <p className="text-gray-500">
+                    <p className="text-gray-500 mb-6">
                         Try it and see the difference.
                     </p>
                 </div>
@@ -105,9 +105,23 @@ export default function AvatarDemo() {
                             <p className="text-sm text-gray-600 mb-4 grow">
                                 The core math engine. Zero dependencies. Use it in Vanilla JS, Vue, Svelte, Node, or via CDN.
                             </p>
-                            <code className="block bg-gray-900 text-green-400 p-3 rounded-md text-sm font-mono overflow-x-auto">
+                            <code className="block bg-gray-900 text-green-400 p-3 rounded-md text-sm font-mono overflow-x-auto mb-4">
                                 npm install fn-ui-avatars
                             </code>
+                            <div className="flex gap-2">
+                                <a href="https://github.com/fnasciment0/fn-ui-avatars" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 px-3 py-1.5 bg-gray-900 hover:bg-gray-800 text-white text-xs font-semibold rounded-lg transition-colors shadow-sm">
+                                    <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round">
+                                        <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                                    </svg>
+                                    GitHub
+                                </a>
+                                <a href="https://www.npmjs.com/package/fn-ui-avatars" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 px-3 py-1.5 bg-[#CB3837] hover:bg-[#A92222] text-white text-xs font-semibold rounded-lg transition-colors shadow-sm">
+                                    <svg viewBox="0 0 24 24" width="20" height="10" fill="currentColor">
+                                        <path d="M0 7.334v8h6.666v1.332H12v-1.332h12v-8H0zm6.666 6.664H3.334v-4h-1.33v4H.668v-5.33h6v5.33zm8 0H12v2.666H9.334v-8H16v5.334h-1.334v-4h-1.334v4h1.334v-1.334zm8-2.666h-1.334v2.666h-1.334v-2.666h-1.332v2.666h-1.334v-5.33h6.666v5.33z"/>
+                                    </svg>
+                                    npm
+                                </a>
+                            </div>
                         </div>
 
                         {/* React Package */}
@@ -116,9 +130,23 @@ export default function AvatarDemo() {
                             <p className="text-sm text-gray-600 mb-4 grow">
                                 The official React wrapper. Ready-to-use component with seamless Tailwind CSS support.
                             </p>
-                            <code className="block bg-gray-900 text-green-400 p-3 rounded-md text-sm font-mono overflow-x-auto">
+                            <code className="block bg-gray-900 text-green-400 p-3 rounded-md text-sm font-mono overflow-x-auto mb-4">
                                 npm install fn-ui-avatars-react
                             </code>
+                            <div className="flex gap-2">
+                                <a href="https://github.com/fnasciment0/fn-ui-avatars-react" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 px-3 py-1.5 bg-gray-900 hover:bg-gray-800 text-white text-xs font-semibold rounded-lg transition-colors shadow-sm">
+                                    <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round">
+                                        <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                                    </svg>
+                                    GitHub
+                                </a>
+                                <a href="https://www.npmjs.com/package/fn-ui-avatars-react" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 px-3 py-1.5 bg-[#CB3837] hover:bg-[#A92222] text-white text-xs font-semibold rounded-lg transition-colors shadow-sm">
+                                    <svg viewBox="0 0 24 24" width="20" height="10" fill="currentColor">
+                                        <path d="M0 7.334v8h6.666v1.332H12v-1.332h12v-8H0zm6.666 6.664H3.334v-4h-1.33v4H.668v-5.33h6v5.33zm8 0H12v2.666H9.334v-8H16v5.334h-1.334v-4h-1.334v4h1.334v-1.334zm8-2.666h-1.334v2.666h-1.334v-2.666h-1.332v2.666h-1.334v-5.33h6.666v5.33z"/>
+                                    </svg>
+                                    npm
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
